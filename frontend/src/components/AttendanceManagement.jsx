@@ -23,8 +23,6 @@ const AttendanceManagement = ({ onNotification }) => {
 
   useEffect(() => {
     fetchData();
-    // Auto-refresh every 30 seconds
-    const interval = setInterval(fetchData, 30000);
     
     // Real-time clock
     const timer = setInterval(() => {
@@ -33,7 +31,6 @@ const AttendanceManagement = ({ onNotification }) => {
     setTimeInterval(timer);
     
     return () => {
-      clearInterval(interval);
       clearInterval(timer);
     };
   }, [dateFilter]);
